@@ -764,7 +764,7 @@ body {
   // Create README.md
   const readmeContent = `# ${appName}
 
-This is a monorepo project created with create-k4.
+This is a monorepo project created with create-nx-turbo.
 
 ## Getting Started
 
@@ -807,7 +807,7 @@ To boot up the project for the first time:
 To add a new app or package to the monorepo, use the following command:
 
 \`\`\`
-create-k4 app <name> [--next | --node]
+create-nx-turbo app <name> [--next | --node]
 \`\`\`
 
 This will create a new app in the \`apps/\` directory with the necessary configuration.
@@ -877,7 +877,7 @@ const initializeApp = async (name: string, type?: string) => {
 };
 
 program
-  .name("create-k4")
+  .name("create-nx-turbo")
   .description("CLI to bootstrap and manage pnpm/turborepo monorepos")
   .version("1.0.0");
 

@@ -1,5 +1,5 @@
 {
-  "name": "create-k4",
+  "name": "create-nx-turbo",
   "version": "1.0.0",
   "description": "CLI to bootstrap and manage pnpm/turborepo monorepos",
   "keywords": [
@@ -8,12 +8,16 @@
     "pnpm",
     "turborepo"
   ],
-  "author": "Kevin Wade",
+  "author": "Kevin Wade (original author), Modified by codelab(code-lab.kr)",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "create-k4": "./bin/create-k4"
+    "create-nx-turbo": "./bin/create-nx-turbo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codelab-kr/create-nx-turbo"
   },
   "files": [
     "dist",
@@ -35,5 +39,6 @@
     "@types/node": "^22.4.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
-  }
+  },
+  "packageManager": "pnpm@9.15.4"
 }

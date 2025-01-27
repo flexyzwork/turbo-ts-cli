@@ -1,6 +1,6 @@
-# create-k4
+# create-nx-turbo
 
-`create-k4` is a CLI tool to bootstrap and manage pnpm/turborepo monorepos with a focus on Next.js and Node.js applications. It provides a streamlined way to set up a modern, scalable monorepo structure with best practices baked in, while maintaining minimal configuration. Despite being batteries-included with features like ESLint, TypeScript, and build tools, the project emphasizes simplicity, keeping all configurations lean and easily customizable.
+`create-nx-turbo` is a CLI tool to bootstrap and manage pnpm/turborepo monorepos with a focus on Next.js and Node.js applications. It provides a streamlined way to set up a modern, scalable monorepo structure with best practices baked in, while maintaining minimal configuration. Despite being batteries-included with features like ESLint, TypeScript, and build tools, the project emphasizes simplicity, keeping all configurations lean and easily customizable.
 
 ## Features
 
@@ -31,7 +31,7 @@
 To create a new monorepo project, run:
 
 ```bash
-npx create-k4@latest <name>
+npx create-nx-turbo@latest <name>
 ```
 
 Follow the interactive prompts to customize your project setup.
@@ -81,3 +81,5 @@ This project was created by Kevin Wade ([YouTube](https://www.youtube.com/@kevin
 ## License
 
 This project is licensed under the MIT License.
+
+
