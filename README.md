@@ -1,6 +1,6 @@
-# create-nx-turbo
+# turbo-ts-cli
 
-`create-nx-turbo` is a CLI tool to bootstrap and manage pnpm/turborepo monorepos with a focus on Next.js and Node.js applications. It provides a streamlined way to set up a modern, scalable monorepo structure with best practices baked in, while maintaining minimal configuration. Despite being batteries-included with features like ESLint, TypeScript, and build tools, the project emphasizes simplicity, keeping all configurations lean and easily customizable.
+`turbo-ts-cli` is a CLI tool to bootstrap and manage pnpm/turborepo monorepos with a focus on Next.js and Node.js applications. It provides a streamlined way to set up a modern, scalable monorepo structure with best practices baked in, while maintaining minimal configuration. Despite being batteries-included with features like ESLint, TypeScript, and build tools, the project emphasizes simplicity, keeping all configurations lean and easily customizable.
 
 ## Features
 
@@ -31,7 +31,7 @@
 To create a new monorepo project, run:
 
 ```bash
-npx create-nx-turbo@latest <name>
+npx turbo-ts-cli@latest <name>
 ```
 
 Follow the interactive prompts to customize your project setup.

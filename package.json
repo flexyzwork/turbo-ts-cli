@@ -1,5 +1,5 @@
 {
-  "name": "create-nx-turbo",
+  "name": "turbo-ts-cli",
   "version": "1.0.0",
   "description": "CLI to bootstrap and manage pnpm/turborepo monorepos",
   "keywords": [
@@ -13,11 +13,11 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "create-nx-turbo": "./bin/create-nx-turbo"
+    "turbo-ts-cli": "./bin/turbo-ts-cli"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/codelab-kr/create-nx-turbo"
+    "url": "https://github.com/codelab-kr/turbo-ts-cli"
   },
   "files": [
     "dist",
@@ -28,17 +28,18 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@inquirer/prompts": "^5.3.8",
+    "@inquirer/prompts": "^5.5.0",
     "commander": "^12.1.0",
-    "fs-extra": "^11.2.0",
-    "prettier": "^3.3.3"
+    "fs-extra": "^11.3.0",
+    "inquirer": "^12.3.2"
   },
   "devDependencies": {
+    "prettier": "^3.4.2",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^22.4.0",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "@types/node": "^22.12.0",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
   },
   "packageManager": "pnpm@9.15.4"
 }
