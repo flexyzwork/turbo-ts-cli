@@ -4,16 +4,29 @@ import {
   writeJsonFile,
   writeFile,
   getPnpmVersion,
+  copyCliPackageTemplate,
 } from '../utils';
 import { addBasePackage } from './addBasePackage';
 import { addApp } from './addApp';
+import {
+  gitignore,
+  packageJson,
+  pnpmWorkspaceYaml,
+  prettierrc,
+  readmeMd,
+  settingsJson,
+  turboJson,
+} from '../contents/monorepo';
 
 /**
  * Initializes a new Turbo monorepo.
  * @param monorepoName - The name of the monorepo to initialize.
  */
 export const initializeMonorepo = (monorepoName: string): void => {
+  const dbName = `${monorepoName.replace(/-/g, '_')}_dev`;
+
   console.log(`Initializing Turbo monorepo: ${monorepoName}`);
+  console.log(`DB name: ${dbName}`);
 
   const pnpmVersion = getPnpmVersion();
 
@@ -26,120 +39,63 @@ export const initializeMonorepo = (monorepoName: string): void => {
   createDirIfNotExists(path.join(rootDir, 'apps'));
 
   // Create pnpm-workspace.yaml
-  writeFile(
-    path.join(rootDir, 'pnpm-workspace.yaml'),
-    `
-packages:
-  - "apps/*"
-  - "packages/*"
-`.trim()
-  );
+  writeFile(path.join(rootDir, 'pnpm-workspace.yaml'), pnpmWorkspaceYaml);
 
   // Create turbo.json
-  writeJsonFile(path.join(rootDir, 'turbo.json'), {
-    $schema: 'https://turbo.build/schema.json',
-    tasks: {
-      build: {
-        dependsOn: ['^build'],
-        inputs: ['$TURBO_DEFAULT$', '.env*'],
-        outputs: ['.next/**', '!.next/cache/**', 'dist'],
-      },
-      lint: {
-        dependsOn: ['^lint'],
-      },
-      'check-types': {
-        dependsOn: ['^check-types'],
-      },
-      dev: {
-        cache: false,
-        persistent: true,
-      },
-    },
-  });
+  writeJsonFile(path.join(rootDir, 'turbo.json'), turboJson);
 
   // Create root package.json
-  writeJsonFile(path.join(rootDir, 'package.json'), {
-    name: monorepoName,
-    private: true,
-    version: '1.0.0',
-    type: 'module',
-    packageManager: `pnpm@${pnpmVersion}`, // Dynamically sets the pnpm version
-    devDependencies: {
-      typescript: '^5',
-      turbo: '^2',
-      prettier: '^3',
-    },
-    scripts: {
-      build: 'turbo run build',
-      dev: 'turbo run dev',
-      lint: 'turbo run lint',
-      test: 'turbo run test',
-    },
-    engines: {
-      node: '>=18',
-    },
-  });
+  writeJsonFile(
+    path.join(rootDir, 'package.json'),
+    packageJson(monorepoName, pnpmVersion)
+  );
 
   // Create .prettierrc
-  writeFile(
-    path.join(rootDir, '.prettierrc'),
-    `
-{
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "arrowParens": "always"
-}
-`.trim()
-  );
+  writeJsonFile(path.join(rootDir, '.prettierrc'), prettierrc);
 
   // Create .prettierignore
   writeFile(path.join(rootDir, '.prettierignore'), `pnpm-lock.yaml`);
 
   //.vscode
   createDirIfNotExists(path.join(rootDir, '.vscode'));
-  writeFile(
-    path.join(rootDir, '.vscode', 'settings.json'),
-    `
-{
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ],
-  "typescript.tsdk": "./node_modules/typescript/lib"
-}
-`.trim()
-  );
+  writeJsonFile(path.join(rootDir, '.vscode', 'settings.json'), settingsJson);
 
   // Add a basic README file
-  writeFile(
-    path.join(rootDir, 'README.md'),
-    `
-# ${monorepoName}
+  writeFile(path.join(rootDir, 'README.md'), readmeMd(monorepoName));
 
-This is a Turbo monorepo initialized with turbo-ts-cli.
-
-## Structure
-- **packages/**: Shared libraries and configurations.
-- **apps/**: Application-specific code.
-
-## Commands
-- \`pnpm run build\`: Build all packages and apps.
-- \`pnpm run lint\`: Lint the code.
-- \`pnpm run test\`: Run tests.
-`.trim()
-  );
+  // Create .gitignore file
+  writeFile(path.join(rootDir, '.gitignore'), gitignore);
 
   // Add default packages
   const basePackage = ['eslint-config', 'typescript-config', 'docker'];
+  const helperPackage = ['db', 'types', 'queue'];
+
   basePackage.forEach((pkg) => {
-    addBasePackage(pkg, path.join(rootDir, 'packages'));
+    addBasePackage(pkg, path.join(rootDir, 'packages'), dbName);
   });
 
-  const helperPackage = ['db', 'types', 'queue'];
   helperPackage.forEach((pkg) => {
     addApp(pkg, 'package', monorepoName);
   });
+
+  // Add default apps & copy templates
+  addApp('web', 'next', monorepoName);
+  addApp('worker', 'node', monorepoName);
+  addApp('api', 'nest', monorepoName);
+
+  const cliRoot = path.resolve(__dirname, '..');
+  const monorepoRoot = rootDir;
+  console.log('CLI Root:', cliRoot);
+  console.log('Monorepo Root:', monorepoRoot);
+
+  copyCliPackageTemplate('db', 'db', monorepoRoot, 'packages', cliRoot);
+  copyCliPackageTemplate('types', 'types', monorepoRoot, 'packages', cliRoot);
+  copyCliPackageTemplate('queue', 'queue', monorepoRoot, 'packages', cliRoot);
+  copyCliPackageTemplate('docker', 'docker', monorepoRoot, 'packages', cliRoot);
+
+  copyCliPackageTemplate('nest', 'api', monorepoRoot, 'apps', cliRoot);
+  copyCliPackageTemplate('node', 'worker', monorepoRoot, 'apps', cliRoot);
+  copyCliPackageTemplate('next', 'web', monorepoRoot, 'apps', cliRoot);
 
   console.log(`Turbo monorepo '${monorepoName}' initialized successfully.`);
 };

@@ -31,10 +31,10 @@
     "@inquirer/prompts": "^5.5.0",
     "commander": "^12.1.0",
     "fs-extra": "^11.3.0",
-    "inquirer": "^12.3.2"
+    "inquirer": "^12.3.2",
+    "prettier": "^3.4.2"
   },
   "devDependencies": {
-    "prettier": "^3.4.2",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^22.12.0",

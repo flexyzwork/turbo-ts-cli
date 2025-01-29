@@ -2,6 +2,41 @@ import fs from 'fs-extra';
 import path from 'path';
 import { execSync } from 'child_process';
 
+/**
+ * Reads a template file from the CLI's templates directory, replaces placeholders, and writes it to the target monorepo package.
+ * @param templateType - The type of package template (e.g., 'db', 'queue', 'types').
+ * @param packageName - The name of the package to create.
+ * @param monorepoRoot - The root directory of the monorepo.
+ * @param cliRoot - The root directory of the CLI program.
+ */
+export const copyCliPackageTemplate = (
+  templateType: string,
+  packageName: string,
+  monorepoRoot: string,
+  repo: 'apps' | 'packages',
+  cliRoot: string
+): void => {
+  const templateDir = path.join(cliRoot, 'templates', templateType);
+  const targetDir = path.join(monorepoRoot, repo, packageName);
+
+  console.log(`📂 Template Source (CLI Program): ${templateDir}`);
+  console.log(`📂 Target Destination (Monorepo): ${targetDir}`);
+
+  if (!fs.existsSync(templateDir)) {
+    console.error(`❌ Template directory not found: ${templateDir}`);
+    return;
+  }
+
+  // Ensure target directory exists
+  fs.ensureDirSync(targetDir);
+
+  // Copy all template files from CLI to the monorepo package directory
+  fs.copySync(templateDir, targetDir, { overwrite: true });
+
+  console.log(
+    `✅ CLI package '${packageName}' created from '${templateType}' template.`
+  );
+};
 
 export const getPnpmVersion = (): string => {
   try {
@@ -13,13 +48,26 @@ export const getPnpmVersion = (): string => {
 };
 
 /**
+ * Deletes the .git directory if it exists in the specified application directory.
+ * @param appDir - The application directory path.
+ * @param name - The name of the application.
+ */
+export const removeGitDirectory = (appDir: string, name: string): void => {
+  const gitDir = path.join(appDir, '.git');
+  if (fs.existsSync(gitDir)) {
+    console.log(`Removing .git directory from ${name} app...`);
+    fs.removeSync(gitDir);
+  }
+};
+
+/**
  * Writes a file, creating directories if needed.
  * @param filePath - The full path of the file.
  * @param content - The content to write into the file.
  */
 export const writeFile = (filePath: string, content: string): void => {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, content, 'utf-8');
+  fs.writeFileSync(filePath, content.trim(), 'utf-8');
 };
 
 /**
@@ -50,9 +98,11 @@ export const runCommand = (
   command: string,
   options: { cwd?: string } = {}
 ): void => {
-  console.log(`Executing: ${command}`);
+  console.log(`Executing: ${command} in ${options.cwd || process.cwd()}`);
   execSync(command, { stdio: 'inherit', ...options });
 };
+
+// -------------------------
 
 /**
  * Executes a shell command and returns the output as a string.
@@ -107,25 +157,6 @@ export const updateJsonFile = (filePath: string, newData: object): void => {
   const currentData = fileExists(filePath) ? readJsonFile(filePath) : {};
   const mergedData = { ...currentData, ...newData };
   writeJsonFile(filePath, mergedData);
-};
-
-/**
- * Generates a new file from a template by replacing placeholders.
- * @param templatePath - The path of the template file.
- * @param outputPath - The path to write the generated file.
- * @param variables - An object containing placeholder variables.
- */
-export const generateFromTemplate = (
-  templatePath: string,
-  outputPath: string,
-  variables: { [key: string]: string }
-): void => {
-  const templateContent = fs.readFileSync(templatePath, 'utf-8');
-  const content = Object.entries(variables).reduce(
-    (acc, [key, value]) => acc.replace(new RegExp(`{{${key}}}`, 'g'), value),
-    templateContent
-  );
-  writeFile(outputPath, content);
 };
 
 /**

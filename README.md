@@ -47,7 +47,7 @@ my-monorepo/
 │   └── worker/            # Node.js worker application
 ├── packages/
 │   ├── db/                # Shared database package (Prisma)
-│   ├── docker-dev/        # Docker Compose configuration for development
+│   ├── docker/        # Docker Compose configuration for development
 │   ├── queue/             # Shared queue package (BullMQ)
 │   ├── eslint-config/     # Shared ESLint configuration
 │   └── typescript-config/ # Shared TypeScript configuration

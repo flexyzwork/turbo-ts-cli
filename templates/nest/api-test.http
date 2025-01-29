@@ -1,0 +1,42 @@
+@baseUrl = http://localhost:4000
+@id = s0gog
+
+# GET 요청
+GET {{baseUrl}}/products
+
+###
+
+# GET 요청
+GET {{baseUrl}}/hello
+
+###
+
+# GET 요청
+GET {{baseUrl}}/products/{{id}}
+
+###
+
+# POST 요청
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "foo",
+  "price": 1000
+}
+
+###
+
+# PUT 요청
+PUT {{baseUrl}}/products/{{id}}
+Content-Type: application/json
+
+{
+  "name": "updated name",
+  "price": 2000
+}
+
+###
+
+# DELETE 요청
+DELETE {{baseUrl}}/products/{{id}}
