@@ -64,6 +64,7 @@ export const prettierrc = {
   arrowParens: 'always',
 };
 
+// vscode
 export const settingsJson = {
   'eslint.workingDirectories': [
     {
@@ -71,6 +72,10 @@ export const settingsJson = {
     },
   ],
   'typescript.tsdk': './node_modules/typescript/lib',
+};
+
+export const extensionsJson = {
+  recommendations: ['humao.rest-client'],
 };
 
 export const gitignore = `
@@ -106,6 +111,14 @@ This is a monorepo project created with turbo-ts-cli.
 
 To boot up the project for the first time:
 
+
+0. Install and build
+   \`\`\`
+   pnpm install 
+   pnpm build
+   \`\`\`
+
+
 1. Start the development environment:
    \`\`\`
    pnpm dev
@@ -117,7 +130,15 @@ To boot up the project for the first time:
    pnpm db:init
    \`\`\`
 
-3. Open the web app: http://localhost:3000
+3. Open the web app(next.js): http://localhost:3000
+
+4. Open the api app(nest.js): http://localhost:4000/products
+   You can test using \`apps/api/api-test.http\` file.
+    🚀 How to Use
+    1️⃣ Open api-test.http in VS Code
+    2️⃣ Install REST Client (if not installed)
+    3️⃣ Click “Send Request” next to any request
+    4️⃣ 🎉 Test API instantly!
 
 ## Useful Commands
 
@@ -135,6 +156,8 @@ To boot up the project for the first time:
 - \`packages/\`: Contains shared packages
   - \`db/\`: Database package with Prisma setup
   - \`queue/\`: Queue package for background jobs
+  - \`docker/\`: Docker configuration for local development
+  - \`types/\`: Shared TypeScript types
   - \`eslint-config/\`: Shared ESLint configuration
   - \`typescript-config/\`: Shared TypeScript configuration
 
@@ -143,7 +166,7 @@ To boot up the project for the first time:
 To add a new app or package to the monorepo, use the following command:
 
 \`\`\`
-create-k4 app <name> [--next | --node]
+turbo-ts-cl <name> [--next | --node | --nest | --package ]
 \`\`\`
 
 This will create a new app in the \`apps/\` directory with the necessary configuration.

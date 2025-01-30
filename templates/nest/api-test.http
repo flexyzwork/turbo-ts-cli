@@ -1,42 +1,39 @@
+### 🌍 Base API URL and Test User ID
 @baseUrl = http://localhost:4000
-@id = s0gog
+@id = 8eswd6  
+# Replace with actual product ID if needed
 
-# GET 요청
+### 🛒 Get All Products (GET)
 GET {{baseUrl}}/products
 
 ###
 
-# GET 요청
-GET {{baseUrl}}/hello
-
-###
-
-# GET 요청
+### 🔍 Get Product by ID (GET)
 GET {{baseUrl}}/products/{{id}}
 
 ###
 
-# POST 요청
+### ➕ Create a New Product (POST)
 POST {{baseUrl}}/products
 Content-Type: application/json
 
 {
-  "name": "foo",
+  "name": "New Product",
   "price": 1000
 }
 
 ###
 
-# PUT 요청
+### ✏ Update Product Information (PUT)
 PUT {{baseUrl}}/products/{{id}}
 Content-Type: application/json
 
 {
-  "name": "updated name",
+  "name": "Updated Product",
   "price": 2000
 }
 
 ###
 
-# DELETE 요청
+### 🗑 Delete a Product (DELETE)
 DELETE {{baseUrl}}/products/{{id}}

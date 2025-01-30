@@ -22,11 +22,11 @@ THE SOFTWARE.
 
 ---
 
-### Modifications by codelab (c) 2024
+### Modifications by codelab (c) 2025
 
 This software has been modified by codelab. The modifications include:
-1. [수정 사항 1: 예 - CLI 명령어 확장]
-2. [수정 사항 2: 예 - 새로운 템플릿 추가]
-3. [수정 사항 3: 예 - 버그 수정 및 최적화]
+1. Modify and Expand CLI Commands – Add support for NestJS and package management.
+2. Separate Existing Sample Projects into Templates – Create dedicated templates for NestJS and TypeScript-based packages.
+3. Refactor Common Functions and Content – Improve maintainability by restructuring shared utilities and modularizing content.
 
 The original software is licensed under the terms of the MIT License, and this modified version continues to use the same license.

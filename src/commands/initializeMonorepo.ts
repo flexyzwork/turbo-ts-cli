@@ -9,6 +9,7 @@ import {
 import { addBasePackage } from './addBasePackage';
 import { addApp } from './addApp';
 import {
+  extensionsJson,
   gitignore,
   packageJson,
   pnpmWorkspaceYaml,
@@ -59,6 +60,10 @@ export const initializeMonorepo = (monorepoName: string): void => {
   //.vscode
   createDirIfNotExists(path.join(rootDir, '.vscode'));
   writeJsonFile(path.join(rootDir, '.vscode', 'settings.json'), settingsJson);
+  writeJsonFile(
+    path.join(rootDir, '.vscode', 'extensions.json'),
+    extensionsJson
+  );
 
   // Add a basic README file
   writeFile(path.join(rootDir, 'README.md'), readmeMd(monorepoName));
@@ -91,7 +96,6 @@ export const initializeMonorepo = (monorepoName: string): void => {
   copyCliPackageTemplate('db', 'db', monorepoRoot, 'packages', cliRoot);
   copyCliPackageTemplate('types', 'types', monorepoRoot, 'packages', cliRoot);
   copyCliPackageTemplate('queue', 'queue', monorepoRoot, 'packages', cliRoot);
-  copyCliPackageTemplate('docker', 'docker', monorepoRoot, 'packages', cliRoot);
 
   copyCliPackageTemplate('nest', 'api', monorepoRoot, 'apps', cliRoot);
   copyCliPackageTemplate('node', 'worker', monorepoRoot, 'apps', cliRoot);
