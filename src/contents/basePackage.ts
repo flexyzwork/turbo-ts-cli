@@ -6,6 +6,7 @@ export const baseJson = `
   "compilerOptions": {
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true

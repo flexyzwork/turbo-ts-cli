@@ -105,9 +105,11 @@ export const addApp = (
       packageJson.dependencies['nanoid'] = '^5';
       packageJson.dependencies['@faker-js/faker'] = '^9';
       packageJson.devDependencies['prisma'] = '^6';
+      packageJson.devDependencies['@types/node'] = '^20';
       packageJson.scripts['build'] = `pnpm build:prisma && tsup --clean`;
       packageJson.scripts['build:prisma'] = `prisma generate`;
       packageJson.scripts['migrate'] = `prisma migrate`;
+      packageJson.scripts['seed'] = `prisma db seed`;
       packageJson.scripts['push'] = `prisma db push`;
       packageJson.scripts['studio'] = `prisma studio`;
       writeFile(path.join(appDir, '.env'), dbEnv(dbName));

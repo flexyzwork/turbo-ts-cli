@@ -46,6 +46,7 @@ export const packageJson = (monorepoName: string, pnpmVersion: string) => ({
     'check-types': 'turbo run check-types',
     db: 'pnpm --filter @packages/db',
     'db:init': 'pnpm db migrate dev --name init',
+    'db:seed': 'pnpm db seed',
     'db:reset': 'pnpm docker db:reset && pnpm db migrate dev',
     dev: 'turbo run dev',
     docker: 'pnpm --filter @packages/docker',
@@ -71,7 +72,7 @@ export const settingsJson = {
       mode: 'auto',
     },
   ],
-  'typescript.tsdk': './node_modules/typescript/lib',
+  'typescript.tsdk': '../node_modules/typescript/lib',
 };
 
 export const extensionsJson = {
@@ -133,11 +134,17 @@ To boot up the project for the first time:
 3. Open the web app(next.js): http://localhost:3000
 
 4. Open the api app(nest.js): http://localhost:4000/products
+
    You can test using \`apps/api/api-test.http\` file.
+
     🚀 How to Use
+
     1️⃣ Open api-test.http in VS Code
+
     2️⃣ Install REST Client (if not installed)
+
     3️⃣ Click “Send Request” next to any request
+
     4️⃣ 🎉 Test API instantly!
 
 ## Useful Commands
