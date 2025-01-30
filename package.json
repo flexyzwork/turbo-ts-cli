@@ -1,5 +1,5 @@
 {
-  "name": "turbo-ts-cli",
+  "name": "turbo-ts-cli-temp",
   "version": "1.0.0",
   "description": "CLI to bootstrap and manage pnpm/turborepo monorepos",
   "keywords": [
