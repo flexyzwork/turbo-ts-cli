@@ -23,7 +23,7 @@ export const tsupConfigTs = `
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/index.ts', 'src/main.ts'],
+  entry: ['src/index.ts', 'src/main.ts', 'src/seed.ts'],
   format: ['esm'],
   clean: true,
   sourcemap: true,

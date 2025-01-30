@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Body,
   Controller,
@@ -23,7 +22,6 @@ export class ProductsController {
   @Get()
   getProducts() {
     return this.productsService.getProducts();
-    // return { message: 'Hello World' };
   }
 
   @Post()
