@@ -166,10 +166,11 @@ To boot up the project for the first time:
 To add a new app or package to the monorepo, use the following command:
 
 \`\`\`
+cd <your-monorepo>
 turbo-ts-cl <name> [--next | --node | --nest | --package ]
 \`\`\`
 
-This will create a new app in the \`apps/\` directory with the necessary configuration.
+This will create a new app in the \`apps/\` or \`packages/\`  directory with the necessary configuration.
 
 ## Learn More
 
