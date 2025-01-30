@@ -8,7 +8,7 @@
     "pnpm",
     "turborepo"
   ],
-  "author": "Kevin Wade (original author), Modified by codelab(code-lab.kr)",
+  "author": "Kevin Wade (original author), Modified by codelab-kr(code-lab.kr)",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
