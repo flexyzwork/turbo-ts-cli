@@ -1,54 +1,69 @@
-# turbo-ts-cli
+# **turbo-ts-cli**
 
-`turbo-ts-cli` is a CLI tool to bootstrap and manage pnpm/turborepo monorepos with a focus on Next.js and Node.js applications. It provides a streamlined way to set up a modern, scalable monorepo structure with best practices baked in, while maintaining minimal configuration. Despite being batteries-included with features like ESLint, TypeScript, and build tools, the project emphasizes simplicity, keeping all configurations lean and easily customizable.
+`turbo-ts-cli` is a CLI tool to bootstrap and manage **pnpm/Turborepo monorepos**, focusing on **Next.js and Node.js applications**. It provides a streamlined way to set up a **modern, scalable monorepo** with **best practices** baked in, while maintaining **minimal configuration**.
 
-## Features
+Despite being **batteries-included** with features like ESLint, TypeScript, and build tools, the project emphasizes **simplicity**, keeping all configurations **lean** and **easily customizable**.
 
-- Quickly bootstrap a new monorepo with pnpm and Turborepo
-- Set up Next.js and Node.js applications within the monorepo
-- Integrate shared packages for common functionality
-- Configure ESLint, Prettier, and TypeScript for code quality
-- Set up a PostgreSQL database with Prisma ORM
-- Configure BullMQ for background job processing
-- Implement Docker for consistent development environments
+---
 
-## Tech Stack
+## **✨ Features**
+✔ Quickly bootstrap a **new monorepo** with **pnpm** and **Turborepo**  
+✔ Set up **Next.js, Node.js, NestJS** applications within the monorepo  
+✔ Integrate **shared packages** for common functionality  
+✔ Configure **ESLint, Prettier, TypeScript** for code quality  
+✔ Set up a **PostgreSQL database with Prisma ORM**  
+✔ Configure **BullMQ** for background job processing  
+✔ Implement **Docker** for a consistent development environment  
 
-- **Package Manager**: pnpm
-- **Monorepo Tool**: Turborepo
-- **Web Framework**: Next.js
-- **Supporting Backend**: Node.js
-- **Database**: PostgreSQL
-- **ORM**: Prisma
-- **Queue**: BullMQ
-- **Containerization**: Docker
-- **Language**: TypeScript
-- **Linting**: ESLint
-- **Formatting**: Prettier
+---
 
-## Usage
+## **⚡ Tech Stack**
+- **Package Manager**: pnpm  
+- **Monorepo Tool**: Turborepo  
+- **Frontend**: Next.js  
+- **Backend**: Nest.js, Node.js  
+- **Database**: PostgreSQL + Prisma ORM  
+- **Queue System**: BullMQ  
+- **Containerization**: Docker  
+- **Language**: TypeScript  
+- **Linting & Formatting**: ESLint + Prettier  
 
-To create a new monorepo project, run:
+---
 
-```bash
-npx turbo-ts-cli@latest <name>
+## **🚀 Installation & Usage**
+
+### **1️⃣ Install the CLI**
+```sh
+pnpm add -g turbo-ts-cli
 ```
 
+or use `npx` (without installation):
+```sh
+npx turbo-ts-cli@latest <monorepo-name>
+```
+
+### **2️⃣ Create a new monorepo**
+```sh
+turbo-ts-cli my-monorepo
+```
 Follow the interactive prompts to customize your project setup.
 
-## Project Structure
+---
 
-The generated monorepo will have the following structure:
+## **📚 Project Structure**
+Once the monorepo is created, the structure will look like this:
 
 ```
 my-monorepo/
 ├── apps/
 │   ├── web/               # Next.js web application
+│   ├── api/               # NestJS API server
 │   └── worker/            # Node.js worker application
 ├── packages/
 │   ├── db/                # Shared database package (Prisma)
-│   ├── docker/        # Docker Compose configuration for development
+│   ├── docker/            # Docker Compose configuration for development
 │   ├── queue/             # Shared queue package (BullMQ)
+│   ├── types/             # Shared TypeScript type package
 │   ├── eslint-config/     # Shared ESLint configuration
 │   └── typescript-config/ # Shared TypeScript configuration
 ├── package.json
@@ -56,30 +71,57 @@ my-monorepo/
 └── turbo.json
 ```
 
-## Commands
+---
 
-Once your project is set up, you can use the following commands:
+## **🛠 Commands**
+After setting up your project, use the following commands:
 
-1. `pnpm dev`: Start the development environment
-2. `pnpm db:init`: Initialize the database
+### **1️⃣ Install dependencies**
+```sh
+pnpm install 
+```
 
-Other commands available:
+### **2️⃣ Build**
+```sh
+pnpm build
+```
 
-- `pnpm build`: Build all packages and apps
-- `pnpm lint`: Run ESLint for all packages and apps
-- `pnpm format`: Format all files using Prettier
-- `pnpm test`: Run tests for all packages and apps
+### **3️⃣ Start the development environment**
+```sh
+pnpm dev
+```
 
-## Contributing
+### **4️⃣ Initialize the database**
+```sh
+pnpm db:init
+```
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+### **Other useful commands**
+```sh
+pnpm build      # Build all packages and apps
+pnpm lint       # Run ESLint for all packages and apps
+pnpm format     # Format all files using Prettier
+pnpm test       # Run tests for all packages and apps
+```
 
-## Creator
+---
 
-This project was created by Kevin Wade ([YouTube](https://www.youtube.com/@kevinwwwade), [X/Twitter](https://x.com/kevinwwwade), [GitHub](https://github.com/mrwade)).
+## **🤝 Contributing**
+Contributions are welcome! Feel free to submit a Pull Request or open an issue.
 
-## License
+---
 
-This project is licensed under the MIT License.
+## **👥 Credits**
+**Creator**:  
+Kevin Wade ([YouTube](https://www.youtube.com/@kevinwwwade), [X/Twitter](https://x.com/kevinwwwade), [GitHub](https://github.com/mrwade))  
 
+**Modified by**:  
+codelab-kr ([GitHub](https://github.com/codelab-kr), [Email](master@code-lab.kr))
+
+---
+
+## **📝 License**
+This project is licensed under the **MIT License**.
+
+---
 
