@@ -1,5 +1,5 @@
 {
-  "name": "create-k4",
+  "name": "turbo-ts-cli",
   "version": "1.0.0",
   "description": "CLI to bootstrap and manage pnpm/turborepo monorepos",
   "keywords": [
@@ -8,12 +8,16 @@
     "pnpm",
     "turborepo"
   ],
-  "author": "Kevin Wade",
+  "author": "Kevin Wade (original author), Modified by codelab(code-lab.kr)",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "create-k4": "./bin/create-k4"
+    "turbo-ts-cli": "./bin/turbo-ts-cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codelab-kr/turbo-ts-cli"
   },
   "files": [
     "dist",
@@ -24,16 +28,18 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@inquirer/prompts": "^5.3.8",
+    "@inquirer/prompts": "^5.5.0",
     "commander": "^12.1.0",
-    "fs-extra": "^11.2.0",
-    "prettier": "^3.3.3"
+    "fs-extra": "^11.3.0",
+    "inquirer": "^12.3.2",
+    "prettier": "^3.4.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^22.4.0",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
-  }
+    "@types/node": "^22.12.0",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "packageManager": "pnpm@9.15.4"
 }
