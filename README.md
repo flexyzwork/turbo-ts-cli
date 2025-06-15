@@ -7,26 +7,26 @@ Despite being **batteries-included** with features like ESLint, TypeScript, and 
 ---
 
 ## **✨ Features**
-✔ Quickly bootstrap a **new monorepo** with **pnpm** and **Turborepo**  
-✔ Set up **Next.js, Node.js, NestJS** applications within the monorepo  
-✔ Integrate **shared packages** for common functionality  
-✔ Configure **ESLint, Prettier, TypeScript** for code quality  
-✔ Set up a **PostgreSQL database with Prisma ORM**  
-✔ Configure **BullMQ** for background job processing  
-✔ Implement **Docker** for a consistent development environment  
+✔ Quickly bootstrap a **new monorepo** with **pnpm** and **Turborepo**
+✔ Set up **Next.js, Node.js, NestJS** applications within the monorepo
+✔ Integrate **shared packages** for common functionality
+✔ Configure **ESLint, Prettier, TypeScript** for code quality
+✔ Set up a **PostgreSQL database with Prisma ORM**
+✔ Configure **BullMQ** for background job processing
+✔ Implement **Docker** for a consistent development environment
 
 ---
 
 ## **⚡ Tech Stack**
-- **Package Manager**: pnpm  
-- **Monorepo Tool**: Turborepo  
-- **Frontend**: Next.js  
-- **Backend**: Nest.js, Node.js  
-- **Database**: PostgreSQL + Prisma ORM  
-- **Queue System**: BullMQ  
-- **Containerization**: Docker  
-- **Language**: TypeScript  
-- **Linting & Formatting**: ESLint + Prettier  
+- **Package Manager**: pnpm
+- **Monorepo Tool**: Turborepo
+- **Frontend**: Next.js
+- **Backend**: Nest.js, Node.js
+- **Database**: PostgreSQL + Prisma ORM
+- **Queue System**: BullMQ
+- **Containerization**: Docker
+- **Language**: TypeScript
+- **Linting & Formatting**: ESLint + Prettier
 
 ---
 
@@ -78,7 +78,7 @@ After setting up your project, use the following commands:
 
 ### **1️⃣ Install dependencies**
 ```sh
-pnpm install 
+pnpm install
 ```
 
 ### **2️⃣ Build**
@@ -112,11 +112,11 @@ Contributions are welcome! Feel free to submit a Pull Request or open an issue.
 ---
 
 ## **👥 Credits**
-**Creator**:  
-Kevin Wade ([YouTube](https://www.youtube.com/@kevinwwwade), [X/Twitter](https://x.com/kevinwwwade), [GitHub](https://github.com/mrwade))  
+**Creator**:
+Kevin Wade ([YouTube](https://www.youtube.com/@kevinwwwade), [X/Twitter](https://x.com/kevinwwwade), [GitHub](https://github.com/mrwade))
 
-**Modified by**:  
-codelab-kr ([GitHub](https://github.com/codelab-kr), [Email](master@code-lab.kr))
+**Modified by**:
+flexyz ([GitHub](https://github.com/flexyzwork), [Email](contact@flexyzwork.com))
 
 ---
 
@@ -124,4 +124,3 @@ codelab-kr ([GitHub](https://github.com/codelab-kr), [Email](master@code-lab.kr)
 This project is licensed under the **MIT License**.
 
 ---
-

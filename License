@@ -22,9 +22,9 @@ THE SOFTWARE.
 
 ---
 
-### Modifications by codelab-kr (c) 2025
+### Modifications by flexyz (c) 2025
 
-This software has been modified by codelab-kr. The modifications include:
+This software has been modified by flexyz. The modifications include:
 1. Modify and Expand CLI Commands – Add support for NestJS and package management.
 2. Separate Existing Sample Projects into Templates – Create dedicated templates for NestJS and TypeScript-based packages.
 3. Refactor Common Functions and Content – Improve maintainability by restructuring shared utilities and modularizing content.
